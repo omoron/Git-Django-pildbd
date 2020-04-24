@@ -37,7 +37,7 @@ def Contact(request):
         fContacts = FormContacts(request.POST)
         if fContacts.is_valid():
             info = fContacts.cleaned_data
-            send_mail(fContacts["subject"], fContacts["message"], info.get("email", ""), [oscar.moron.rosales@hotmail.com],)
+            send_mail(fContacts["subject"], fContacts["message"], info.get("email", ""), ["oscar.moron.rosales@hotmail.com"],)
     else:
         fContacts = FormContacts()
     return render(request, "FormContacts.html", {"form" : fContacts})
